@@ -2,6 +2,12 @@ import React from "react";
 // Stylesheet
 import "./Product.css";
 
+/**
+ * This function rounds off any number to the specified number of decimal digits.
+ * @param {Number} number The number to round off.
+ * @param {Number} places The amount of places to round the number off to.
+ * @returns
+ */
 const roundOff = (number, places) => {
   const x = Math.pow(10, places);
   return Math.round(number * x) / x;

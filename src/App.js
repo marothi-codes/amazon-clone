@@ -1,19 +1,22 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+// Componets
 import Header from "./components/Header";
 import Home from "./components/Home";
+import Checkout from "./components/Checkout";
+// Stylesheet
 import "./App.css";
+
 function App() {
   return (
     <Router>
       <div className="app">
         <>
+          <Header />
           <Switch>
             <Route path="/checkout">
-              <Header />
-              <h1>The Shopping Cart</h1>
+              <Checkout />
             </Route>
             <Route path="/">
-              <Header />
               <Home />
             </Route>
           </Switch>

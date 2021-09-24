@@ -57,11 +57,14 @@
   font-weight: 800;
 }
 
-.header__optionBasket {
+.header__optionBasket,
+.header__optionBasket > a {
   align-items: center;
   color: #fff;
   display: flex;
   justify-content: space-evenly;
+  padding-right: 0.3rem;
+  text-decoration: none;
 }
 
 .header__basketCount {
