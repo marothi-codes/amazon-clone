@@ -1,4 +1,6 @@
 import React from "react";
+import { useStateValue } from "../state/StateProvider";
+
 // Stylesheet
 import "./Product.css";
 
@@ -13,8 +15,23 @@ const roundOff = (number, places) => {
   return Math.round(number * x) / x;
 };
 
-const Product = ({ title, image, price, rating }) => {
+const Product = ({ id, title, image, price, rating }) => {
+  const [{ cart }, dispatch] = useStateValue();
   const decimalPrice = roundOff(price, 2);
+
+  const addToCart = () => {
+    // Dispatch the item into the data layer.
+    dispatch({
+      type: "ADD_TO_CART",
+      item: {
+        id,
+        title,
+        image,
+        price,
+        rating,
+      },
+    });
+  };
 
   return (
     <div className="product">
@@ -37,7 +54,7 @@ const Product = ({ title, image, price, rating }) => {
 
       <img src={image} alt={title} />
 
-      <button>Add to Cart</button>
+      <button onClick={addToCart}>Add to Cart</button>
     </div>
   );
 };
