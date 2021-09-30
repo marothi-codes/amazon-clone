@@ -34,7 +34,7 @@ const Product = ({ id, title, image, price, rating }) => {
   };
 
   return (
-    <div className="product">
+    <div className="product" key={id}>
       <div className="product__info">
         <p>{title}</p>
 
