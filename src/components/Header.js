@@ -54,7 +54,7 @@ const Header = () => {
         </div>
 
         <div className="header__optionBasket">
-          <Link to="/checkout">
+          <Link to="/shoppingcart">
             <ShoppingCartOutlinedIcon />
             <span className="header__optionLineTwo header__BasketCount">
               {cart?.length}

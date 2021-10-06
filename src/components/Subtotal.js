@@ -1,12 +1,15 @@
 import React from "react";
 import { useStateValue } from "../state/StateProvider";
 import CurrencyFormat from "react-currency-format";
-
-import "./Subtotal.css";
 import { getCartTotal } from "../redux/reducers/reducer";
+import { useHistory } from "react-router-dom";
+
+// Stylesheet...
+import "./Subtotal.css";
 
 const Subtotal = () => {
-  const [{ cart }, dispatch] = useStateValue();
+  const history = useHistory();
+  const [{ cart }] = useStateValue();
   return (
     <div className="subtotal">
       <CurrencyFormat
@@ -29,7 +32,9 @@ const Subtotal = () => {
         prefix={"R"}
       />
 
-      <button>Proceed to checkout</button>
+      <button onClick={(e) => history.push("/checkout")}>
+        Proceed to checkout
+      </button>
     </div>
   );
 };

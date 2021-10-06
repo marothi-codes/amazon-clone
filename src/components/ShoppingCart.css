@@ -1,0 +1,17 @@
+.shoppingCart {
+  background-color: #fff;
+  display: flex;
+  height: max-content;
+  padding: 20px;
+}
+
+.shoppingCart__title {
+  border-bottom: 1px solid lightgrey;
+  margin-right: 10px;
+  padding: 10px;
+}
+
+.shoppingCart__ad {
+  margin-bottom: 10px;
+  width: 100%;
+}

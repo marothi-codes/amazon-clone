@@ -1,40 +1,66 @@
 import React from "react";
-import Subtotal from "./Subtotal";
-import CheckoutProduct from "./CheckoutProduct";
-
-// Stylesheet
-import "./Checkout.css";
+import { Link } from "react-router-dom";
 import { useStateValue } from "../state/StateProvider";
+import ShoppingCartProduct from "./ShppingCartProduct";
 
+// Stylesheet.
+import "./Checkout.css";
+
+/**
+ * Renders the Checkout component.
+ * @returns JSX
+ */
 const Checkout = () => {
   const [{ cart, user }] = useStateValue();
   return (
     <div className="checkout">
-      <div className="checkout__left">
-        <img
-          className="checkout__ad"
-          src="https://images-na.ssl-images-amazon.com/images/G/02/UK_CCMP/TM/OCC_Amazon1._CB423492668_.jpg"
-          alt="Amazon Ad"
-        />
+      <div className="checkout__container">
+        <h1>
+          Checkout (<Link to="/shoppingcart">{cart.length} items.</Link>)
+        </h1>
+        <div className="checkout__section">
+          <div className="checkout__title">
+            <h3>Delivery Address</h3>
+          </div>
 
-        <div>
-          <h3>Hello {user ? user.email : "friend."}</h3>
-          <h2 className="checkout__title">Here's Your Shopping Cart</h2>
+          <div className="checkout__address">
+            <p>{user?.email}</p>
 
-          {cart.map((item) => (
-            <CheckoutProduct
-              id={item.id}
-              title={item.title}
-              image={item.image}
-              price={item.price}
-              rating={item.rating}
-            />
-          ))}
+            <address>
+              0000 React Boulevard
+              <br />
+              Midrand
+              <br />
+              Johannesburg
+              <br />
+              0000
+              <br />
+              Gauteng, South Africa
+            </address>
+          </div>
         </div>
-      </div>
+        <div className="checkout__section">
+          <div className="checkout__title">
+            <h3>Review items and delivery address</h3>
+          </div>
 
-      <div className="checkout__right">
-        <Subtotal />
+          <div className="checkout__items">
+            {cart.map((item) => (
+              <ShoppingCartProduct
+                id={item.id}
+                title={item.title}
+                image={item.image}
+                price={item.price}
+                rating={item.rating}
+                key={item.id}
+              />
+            ))}
+          </div>
+        </div>
+        <div className="checkout__section">
+          <div className="checkout__title"></div>
+          <div className="checkout__details"></div>
+        </div>
       </div>
     </div>
   );

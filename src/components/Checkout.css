@@ -1,17 +1,31 @@
 .checkout {
   background-color: #fff;
+}
+
+.checkout__container > h1 {
+  background-color: rgb(234, 237, 237);
+  border-bottom: 1px solid lightgrey;
+  font-weight: 400;
+  padding: 10px;
+  text-align: center;
+}
+
+.checkout__container > h1 a {
+  text-decoration: none;
+}
+
+.checkout__section {
+  border-bottom: 1px solid lightgrey;
   display: flex;
-  height: max-content;
+  margin: 0 20px;
   padding: 20px;
 }
 
 .checkout__title {
-  border-bottom: 1px solid lightgrey;
-  margin-right: 10px;
-  padding: 10px;
+  flex: 0.2;
 }
 
-.checkout__ad {
-  margin-bottom: 10px;
-  width: 100%;
+.checkout__address,
+.checkout__items {
+  flex: 0.8;
 }

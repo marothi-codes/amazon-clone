@@ -2,9 +2,9 @@ import React from "react";
 import { useStateValue } from "../state/StateProvider";
 
 // Stylesheet
-import "./CheckoutProduct.css";
+import "./ShoppingCartProduct.css";
 
-const CheckoutProduct = ({ id, image, price, title, rating }) => {
+const ShoppingCartProduct = ({ id, image, price, title, rating }) => {
   const [{ cart }, dispatch] = useStateValue();
 
   const removeFromCart = () => {
@@ -15,21 +15,21 @@ const CheckoutProduct = ({ id, image, price, title, rating }) => {
   };
 
   return (
-    <div className="checkoutProduct">
-      <img className="checkoutProduct__image" src={image} alt={title} />
+    <div className="shoppingCartProduct">
+      <img className="shoppingCartProduct__image" src={image} alt={title} />
 
-      <div className="checkoutProduct__info">
-        <p className="checkoutProduct__title">{title}</p>
-        <p className="checkoutProduct__price">
+      <div className="shoppingCartProduct__info">
+        <p className="shoppingCartProduct__title">{title}</p>
+        <p className="shoppingCartProduct__price">
           <small>R</small>
           <strong>{price}</strong>
         </p>
 
-        <div className="checkoutProduct__rating">
+        <div className="shoppingCartProduct__rating">
           {Array(rating)
             .fill()
             .map((_, i) => (
-              <p>⭐</p>
+              <p key={i}>⭐</p>
             ))}
         </div>
         <button onClick={removeFromCart}>Remove from cart</button>
@@ -38,4 +38,4 @@ const CheckoutProduct = ({ id, image, price, title, rating }) => {
   );
 };
 
-export default CheckoutProduct;
+export default ShoppingCartProduct;

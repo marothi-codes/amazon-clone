@@ -3,15 +3,20 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { auth } from "./firebase";
 import { useStateValue } from "./state/StateProvider";
 
-// Components
+// Components...
 import Header from "./components/Header";
 import Home from "./components/Home";
+import ShoppingCart from "./components/ShoppingCart";
 import Checkout from "./components/Checkout";
 import SignIn from "./components/SignIn";
 
-// Stylesheet
+// Stylesheet...
 import "./App.css";
 
+/**
+ * Renders the App's root (parent) component.
+ * @returns JSX
+ */
 function App() {
   const [{}, dispatch] = useStateValue();
   useEffect(() => {
@@ -40,13 +45,24 @@ function App() {
       <div className="app">
         <>
           <Switch>
+            {/* ~/signin */}
             <Route path="/signin">
               <SignIn />
             </Route>
+
+            {/* ~/shoppingcart */}
+            <Route path="/shoppingcart">
+              <Header />
+              <ShoppingCart />
+            </Route>
+
+            {/* ~/checkout */}
             <Route path="/checkout">
               <Header />
               <Checkout />
             </Route>
+
+            {/* ~/?... */}
             <Route path="/">
               <Header />
               <Home />
